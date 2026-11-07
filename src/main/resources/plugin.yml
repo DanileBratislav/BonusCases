@@ -1,0 +1,21 @@
+name: BonusCases
+version: 1.0.0
+main: ru.bonuscases.BonusCasesPlugin
+api-version: '1.21'
+description: Кейсы с колесом призов, оплата нартами
+softdepend: [Vault, PlaceholderAPI, CMI]
+
+commands:
+  bonuscase:
+    description: Управление бонус-кейсами
+    usage: /bonuscase <цена> <номер> | edit <номер> | remove | list | reload
+    aliases: [bcase]
+    permission: bonuscase.admin
+
+permissions:
+  bonuscase.admin:
+    description: Создание, удаление и настройка кейсов
+    default: op
+  bonuscase.use:
+    description: Открытие кейсов
+    default: true

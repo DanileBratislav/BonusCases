@@ -1,0 +1,55 @@
+# ============ BonusCases ============
+
+# Валюта. Три формы слова: 1 нарт, 2 нарта, 5 нартов
+currency:
+  forms: ["нарт", "нарта", "нартов"]
+
+# Как списывать нарты.
+#  vault   - через Vault (работае�� с CMI, Essentials и др. - если нарты это основная валюта)
+#  command - если нарты это отдельная валюта: баланс читается через PlaceholderAPI,
+#            списывается командой от консоли. Плейсхолдер должен возвращать просто число.
+economy:
+  mode: vault
+  command:
+    balance-placeholder: "%vault_eco_balance%"
+    take: "eco take {player} {amount}"
+    give: "eco give {player} {amount}"
+
+# Если шанс выпавшего приза меньше этого значения (в %) - сообщение о выигрыше увидит весь сервер.
+# 0 - никогда не объявлять.
+broadcast-below-percent: 5.0
+
+# Названия кейсов по номеру (номер указывается в /bonuscase <цена> <номер>).
+case-names:
+  '1': "&aОбычный кейс"
+  '2': "&9Редкий кейс"
+  '3': "&6Легендарный кейс"
+# Для остальных номеров название будет "Кейс №N"
+
+messages:
+  prefix: "&6[Кейсы] &r"
+  no-permission: "&cУ вас нет прав на эту команду."
+  no-use: "&cУ вас нет прав открывать кейсы."
+  players-only: "&cЭту команду можно использовать только в игре."
+  usage-create: "&eИспользование: &f/bonuscase <цена> <номер> &7(наведитесь на блок). Пример: &f/bonuscase 15 1"
+  bad-values: "&cЦена должна быть больше 0, номер - от 1 до 99."
+  look-at-block: "&cНаведите прицел на блок (не дальше 6 блоков)."
+  case-created: "&aКейс создан: {name} &7(№{number}) &aза &e{price}&a."
+  case-updated: "&aКейс на этом блоке обновлён: {name} &7(№{number}) &aза &e{price}&a."
+  no-loot-warning: "&eВ этом кейсе пока нет наград. Добавьте их: &f/bonuscase edit {number}"
+  case-removed: "&aКейс на этом блоке удалён."
+  not-a-case: "&cЭтот блок не является кейсом."
+  edit-usage: "&eИспользование: &f/bonuscase edit <номер>"
+  editor-saved: "&aНаграды кейса №{number} сохранены: &e{count} &aшт."
+  reloaded: "&aКонфиг и данные перезагружены."
+  list-empty: "&eКейсов пока нет."
+  list-header: "&6Кейсы ({count}):"
+  list-line: "&7{i}. &f{world} {x} {y} {z} &7- №{number}, &e{price}&7, наград: {loot}{missing}"
+  empty: "&cВ этом кейсе пока нет наград."
+  no-economy: "&cЭкономика недоступна. Сообщите администратору."
+  not-enough: "&cНедостаточно нартов. Нужно: &e{price}&c."
+  pay-failed: "&cНе удалось списать оплату."
+  paid: "&7Списано: &e{price}&7. Крутим колесо..."
+  won: "&aВы выиграли: "
+  broadcast: "&e{player} &aвыбил из &r{case}&a: "
+  break-denied: "&cЭто кейс. Чтобы убрать его, наведитесь на блок и введите &f/bonuscase remove&c."
